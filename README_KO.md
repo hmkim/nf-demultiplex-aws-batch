@@ -14,6 +14,13 @@
 | 실행 환경 | AWS Batch (EC2 SPOT) |
 | 리전 | ap-northeast-2 (Seoul) |
 
+### 소스 참조
+
+| 리소스 | URL |
+|--------|-----|
+| 워크플로우 | https://nf-co.re/demultiplex/1.7.0 |
+| 테스트 데이터셋 | https://github.com/nf-core/test-datasets |
+
 ---
 
 ## 아키텍처
@@ -310,6 +317,7 @@ process {
 
 ## 참고 자료
 
-- [nf-core/demultiplex](https://nf-co.re/demultiplex)
+- [nf-core/demultiplex v1.7.0](https://nf-co.re/demultiplex/1.7.0) - 파이프라인 문서 및 사용법
+- [nf-core/test-datasets](https://github.com/nf-core/test-datasets) - 테스트 데이터 저장소
 - [Nextflow AWS Batch 문서](https://www.nextflow.io/docs/latest/aws.html)
 - [AWS Batch 사용자 가이드](https://docs.aws.amazon.com/batch/)

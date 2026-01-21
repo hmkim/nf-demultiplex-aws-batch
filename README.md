@@ -14,6 +14,13 @@ This document provides a comprehensive guide for running the nf-core/demultiplex
 | Execution Environment | AWS Batch (EC2 SPOT) |
 | Region | ap-northeast-2 (Seoul) |
 
+### Source References
+
+| Resource | URL |
+|----------|-----|
+| Workflow | https://nf-co.re/demultiplex/1.7.0 |
+| Test Datasets | https://github.com/nf-core/test-datasets |
+
 ---
 
 ## Architecture
@@ -310,6 +317,7 @@ This project is licensed under the MIT License.
 
 ## References
 
-- [nf-core/demultiplex](https://nf-co.re/demultiplex)
+- [nf-core/demultiplex v1.7.0](https://nf-co.re/demultiplex/1.7.0) - Pipeline documentation and usage
+- [nf-core/test-datasets](https://github.com/nf-core/test-datasets) - Test data repository
 - [Nextflow AWS Batch Documentation](https://www.nextflow.io/docs/latest/aws.html)
 - [AWS Batch User Guide](https://docs.aws.amazon.com/batch/)
