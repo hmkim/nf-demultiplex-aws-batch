@@ -1,0 +1,32 @@
+# Nextflow
+.nextflow/
+.nextflow.log*
+work/
+results/
+
+# AWS Batch config with sensitive data (use .example instead)
+demultiplex/conf/aws_batch.config
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test data
+testdata/
+*.tar.gz
+
+# Credentials
+.aws/
+credentials*
+*.pem
+*.key
+
+# Logs
+*.log
+logs/
