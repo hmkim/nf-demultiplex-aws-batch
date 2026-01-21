@@ -1,0 +1,62 @@
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    nf-core/demultiplex AWS Batch config file for NovaSeq6000
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Configuration for running nf-core/demultiplex on AWS Batch with NovaSeq6000 data
+----------------------------------------------------------------------------------------
+*/
+
+// AWS Batch settings
+process {
+    executor = 'awsbatch'
+    queue = 'YOUR_JOB_QUEUE_NAME'
+}
+
+aws {
+    region = 'YOUR_REGION'
+    batch {
+        maxParallelTransfers = 5
+        maxTransferAttempts = 3
+        jobRole = 'arn:aws:iam::YOUR_ACCOUNT_ID:role/YOUR_BATCH_JOB_ROLE'
+        cliPath = '/opt/aws-cli/v2/current/bin/aws'
+        volumes = ['/opt/aws-cli:/opt/aws-cli:ro']
+    }
+}
+
+// Docker settings for AWS Batch
+docker {
+    enabled = true
+}
+
+// Working directory for Nextflow
+workDir = 's3://YOUR_BUCKET/work-novaseq6000'
+
+// Process-specific configurations for AWS Batch
+process {
+    // BCL2FASTQ - use NovaSeq6000 specific tile: s_1_2101
+    withName: 'BCL2FASTQ' {
+        ext.args = "--tiles s_1_2101"
+    }
+
+    // EC2-compatible resource configurations
+    withLabel:process_single {
+        cpus   = 1
+        memory = 4.GB
+    }
+    withLabel:process_low {
+        cpus   = 2
+        memory = 8.GB
+    }
+    withLabel:process_medium {
+        cpus   = 4
+        memory = 16.GB
+    }
+    withLabel:process_high {
+        cpus   = 8
+        memory = 30.GB
+    }
+    withLabel:process_high_memory {
+        cpus   = 8
+        memory = 60.GB
+    }
+}

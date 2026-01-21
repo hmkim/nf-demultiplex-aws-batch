@@ -1,0 +1,2 @@
+id,samplesheet,lane,flowcell
+YOUR_RUN_ID,s3://YOUR_BUCKET/samplesheets/SampleSheet.csv,1,s3://YOUR_BUCKET/testdata/YOUR_RUN_ID.tar.gz

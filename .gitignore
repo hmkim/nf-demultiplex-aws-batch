@@ -4,8 +4,14 @@
 work/
 results/
 
-# AWS Batch config with sensitive data (use .example instead)
+# AWS config files with sensitive data (use .example instead)
 demultiplex/conf/aws_batch.config
+demultiplex/conf/aws_batch_novaseq6000.config
+demultiplex/conf/aws_healthomics.config
+run_aws_batch.sh
+run_healthomics.sh
+input_s3.csv
+input_novaseq6000.csv
 
 # IDE
 .idea/
@@ -17,9 +23,14 @@ demultiplex/conf/aws_batch.config
 .DS_Store
 Thumbs.db
 
-# Test data
+# Test data (large files)
 testdata/
+test-datasets/
 *.tar.gz
+
+# Workflow artifacts
+*.zip
+workflow-extracted/
 
 # Credentials
 .aws/

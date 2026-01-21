@@ -1,0 +1,23 @@
+#!/bin/bash
+# AWS Batch에서 nf-core/demultiplex 실행 스크립트
+
+set -e
+
+# 설정 - 환경에 맞게 수정하세요
+BUCKET="YOUR_S3_BUCKET"
+REGION="YOUR_REGION"
+WORKDIR="s3://${BUCKET}/work"
+OUTDIR="s3://${BUCKET}/results"
+
+# Nextflow 실행
+nextflow run demultiplex/main.nf \
+    -profile docker \
+    -c demultiplex/conf/aws_batch.config \
+    --input s3://${BUCKET}/input.csv \
+    --outdir ${OUTDIR} \
+    --demultiplexer bcl2fastq \
+    --skip_tools "checkqc,samshee,falco" \
+    -work-dir ${WORKDIR} \
+    -resume
+
+echo "Pipeline completed. Check results at: ${OUTDIR}"
